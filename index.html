@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Record Management</title>
+    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="text/javascript"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        div {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #medicalRecords {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Register Patient</h2>
+    <div>
+        <label for="patientIDRegister">Patient ID:</label>
+        <input type="text" id="patientIDRegister" required>
+        <button onclick="registerPatient()">Register Patient</button>
+    </div>
+    
+    <h2>Set Doctor</h2>
+    <div>
+        <label for="patientIDSetDoctor">Patient ID:</label>
+        <input type="text" id="patientIDSetDoctor" required>
+        <label for="doctorAddressSetDoctor">Doctor Address:</label>
+        <input type="text" id="doctorAddressSetDoctor" required>
+        <button onclick="setDoctorForPatient()">Set Doctor</button>
+    </div>
+
+    <h2>Change Doctor</h2>
+    <div>
+        <label for="patientIDChange">Patient ID:</label>
+        <input type="text" id="patientIDChange" required>
+        <label for="newDoctorAddress">New Doctor Address:</label>
+        <input type="text" id="newDoctorAddress" required>
+        <button onclick="changeDoctor()">Change Doctor</button>
+    </div>
+
+    <h2>Add Medical Record</h2>
+    <div>
+        <label for="patientIDAdd">Patient ID:</label>
+        <input type="text" id="patientIDAdd" required>
+        <label for="dataHash">Data Hash:</label>
+        <input type="text" id="dataHash" required>
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" required>
+        <label for="diagnosis">Diagnosis:</label>
+        <input type="text" id="diagnosis" required>
+        <button onclick="addRecord()">Add Record</button>
+    </div>
+
+    <h2>Get Medical Records</h2>
+    <div>
+        <label for="patientIDGet">Patient ID:</label>
+        <input type="text" id="patientIDGet" required>
+        <button onclick="getRecords()">Get Records</button>
+        <div id="medicalRecords"></div>
+    </div>
+
+    <script defer src="app.js"></script>
+</body>
+</html>
