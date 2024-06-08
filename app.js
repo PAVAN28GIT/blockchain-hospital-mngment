@@ -108,7 +108,7 @@ async function addRecord() {
         alert("Error adding medical record: " + error.message);
     }
 }
-// Function to fetch medical records for a patient
+
 async function getRecords() {
     const contract = await initContractAndMetaMask();
     if (!contract) return;
@@ -132,12 +132,22 @@ async function getRecords() {
             `;
         });
 
-        // Display the formatted information on the webpage
-        document.getElementById("records").innerHTML = formattedInfo;
+        // Ensure the element exists before trying to set its innerHTML
+        const recordsElement = document.getElementById("medicalRecords");
+        if (recordsElement) {
+            recordsElement.innerHTML = formattedInfo;
+        } else {
+            console.error("Element with ID 'medicalRecords' not found.");
+        }
         console.log("Fetched records:", records);
     } catch (error) {
         console.error(error);
         alert("Error fetching records: " + error.message);
     }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector("button[onclick='getRecords()']").addEventListener("click", getRecords);
+});
+
 
